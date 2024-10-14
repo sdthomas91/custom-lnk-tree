@@ -1,4 +1,3 @@
-// src/components/Linktree.js
 import React from 'react';
 import instagramIcon from '../assets/instagram.svg';
 import tiktokIcon from '../assets/tiktok.svg';
@@ -8,7 +7,6 @@ import heroImage from '../assets/hero.jpg';
 
 const Linktree = () => {
   const links = [
-    { title: 'Why we left the UK!', url: 'https://www.tiktok.com/@theunconventionalfam/video/7425558331663715617', thumbnail: '/images/thumbnail-latest.png' },
     { title: '@theunconventionalfam', url: 'https://www.tiktok.com/@theunconventionalfam', icon: tiktokIcon },
     { title: '@theunconventionalfamily_', url: 'http://instagram.com/theunconventionalfamily_', icon: instagramIcon },
     { title: 'The Unconventional Family', url: 'https://www.youtube.com/@Theunconventionalfamily', icon: youtubeIcon },
@@ -41,12 +39,11 @@ const Linktree = () => {
         </div>
       </div>
 
-      {/* Social Links */}
+      {/* Social Links as Pills */}
       {links.map((link, index) => (
-        <div key={index} style={styles.linkContainer}>
-          {link.thumbnail && <img src={link.thumbnail} alt={link.title} style={styles.icon} />}  {/* Render thumbnail if present */}
-          {!link.thumbnail && link.icon && <img src={link.icon} alt={link.title} style={styles.icon} />} {/* Render icon if no thumbnail */}
-          <a href={link.url} target="_blank" rel="noopener noreferrer" style={styles.link}>
+        <div key={index} style={styles.pillContainer}>
+          {link.icon && <img src={link.icon} alt={link.title} style={styles.icon} />} {/* Render icon */}
+          <a href={link.url} target="_blank" rel="noopener noreferrer" style={styles.pillLink}>
             {link.title}
           </a>
         </div>
@@ -81,29 +78,42 @@ const styles = {
     borderRadius: '10px', // Rounded corners for aesthetic
     boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)', // Slight shadow for depth
   },
-  linkContainer: {
+  pillContainer: {
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: '20px',
-    width: '100%',       // Ensure full width for proper centering of items
-    maxWidth: '500px',   // Limit width to avoid stretching too far on large screens
+    justifyContent: 'flex-start', // Align icon and text left
+    width: '100%',       // Full width for pills
+    maxWidth: '500px',   // Same width for consistency
+    backgroundColor: '#D8BFD8', // Purple background for pills
+    padding: '10px 20px', // Padding for pill
+    borderRadius: '50px', // Rounded corners for pill effect
+    marginBottom: '15px', // Space between pills
+    boxSizing: 'border-box', // Include padding in width
   },
   icon: {
     width: '30px',
     height: '30px',
     marginRight: '10px',
   },
-  link: {
+  pillLink: {
     fontSize: '18px',
-    color: '#00adb5',
+    color: '#fff', // White text for contrast against purple background
     textDecoration: 'none',
+    flex: 1, // Ensure the link text expands to fill the space
   },
   latestVideo: {
     fontSize: '20px',
     fontWeight: 'bold',
-    marginBottom: '0',
+    marginBottom: '10px', // Add some space below the Latest Update text
+    color: '#00adb5', // Keep the original color
+    textDecoration: 'underline', // Add underline
+  },
+  link: {
+    fontSize: '18px',
+    color: '#000', // Change "Why we left the UK!" to black
+    textDecoration: 'none', // Remove underline
   },
 };
+
 
 export default Linktree;
