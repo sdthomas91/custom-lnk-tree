@@ -1,19 +1,19 @@
-// src/App.js
 import React from 'react';
-import './App.css';
-import Linktree from './components/Linktree'; // Import the Linktree component
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Linktree from './components/Linktree';
+import ComingSoon from './components/ComingSoon';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Linktree /> {/* Render the Linktree component */}
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        {/* Home page shows "Coming Soon" */}
+        <Route path="/" element={<ComingSoon />} />
+        {/* Linktree page */}
+        <Route path="/links" element={<Linktree />} />
+      </Routes>
+    </Router>
   );
 }
 
 export default App;
-
-
-
