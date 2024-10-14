@@ -80,14 +80,14 @@ const styles = {
     borderRadius: '10px',
     boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)',
     display: 'flex',
-    alignItems: 'center', // Align items to the center vertically
-    justifyContent: 'center', 
+    alignItems: 'center',
+    justifyContent: 'center',
     flexWrap: 'wrap',
     boxSizing: 'border-box',
   },
   thumbnail: {
     width: '100%',
-    maxWidth: '100px', 
+    maxWidth: '100px',
     height: 'auto',
     borderRadius: '10px',
     marginRight: '20px',
@@ -97,8 +97,8 @@ const styles = {
     flex: '1',
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'center', // Center align the text vertically
-    textAlign: 'left', // Align text to the left for readability
+    justifyContent: 'center',
+    textAlign: 'left',
   },
   latestVideo: {
     fontSize: '20px',
@@ -119,12 +119,12 @@ const styles = {
     justifyContent: 'flex-start',
     width: '100%',
     maxWidth: '500px',
-    backgroundColor: '#D8BFD8',
+    backgroundColor: '#fff', // Pill background
+    border: '2px solid #D8BFD8', // Pill border
     padding: '10px 20px',
     borderRadius: '50px',
     marginBottom: '15px',
     boxSizing: 'border-box',
-    boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)', // Add box-shadow for depth
   },
   icon: {
     width: '30px',
@@ -133,14 +133,10 @@ const styles = {
   },
   pillLink: {
     fontSize: '18px',
-    color: '#fff',
+    color: '#8AB598', // Darker version of green for text for contrast
     textDecoration: 'none',
     flex: 1,
   },
 };
 
-
-
 export default Linktree;
-
-
