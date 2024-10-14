@@ -21,28 +21,29 @@ const Linktree = () => {
   return (
     <div style={styles.container}>
       <img src={heroImage} alt="Hero" style={styles.heroImage} />
-
+  
       {/* Latest Video Section */}
       <div style={styles.latestBlock}>
-        <div style={styles.linkContainer}>
+        {/* Video Thumbnail on the left */}
+        <img src="/images/thumbnail-latest.png" alt="Why we left the UK" style={styles.thumbnail} />
+        
+        {/* Text block on the right */}
+        <div style={styles.latestVideoTextBlock}>
           <p style={styles.latestVideo}>
             <a href={latestVideo.url} target="_blank" rel="noopener noreferrer" style={styles.link}>
               {latestVideo.title}
             </a>
           </p>
-        </div>
-        <div style={styles.linkContainer}>
-          <img src="/images/thumbnail-latest.png" alt="Why we left the UK" style={styles.icon} />
           <a href="https://www.tiktok.com/@theunconventionalfam/video/7425558331663715617" target="_blank" rel="noopener noreferrer" style={styles.link}>
             Why we left the UK!
           </a>
         </div>
       </div>
-
+  
       {/* Social Links as Pills */}
       {links.map((link, index) => (
         <div key={index} style={styles.pillContainer}>
-          {link.icon && <img src={link.icon} alt={link.title} style={styles.icon} />} {/* Render icon */}
+          {link.icon && <img src={link.icon} alt={link.title} style={styles.icon} />}
           <a href={link.url} target="_blank" rel="noopener noreferrer" style={styles.pillLink}>
             {link.title}
           </a>
@@ -63,32 +64,67 @@ const styles = {
     flexDirection: 'column',
     alignItems: 'center',
     boxSizing: 'border-box',
+    overflow: 'hidden',
   },
   heroImage: {
-    width: '90%', // Adjust the size of the hero image
+    width: '90%',
     maxWidth: '500px',
     marginBottom: '20px',
   },
   latestBlock: {
-    width: '80%',
-    maxWidth: '500px',
-    marginBottom: '30px', // Adds separation from other blocks
+    width: '100%',
+    maxWidth: '700px',
+    marginBottom: '30px',
     padding: '20px',
-    backgroundColor: '#f0f0f0', // Light background to differentiate the block
-    borderRadius: '10px', // Rounded corners for aesthetic
-    boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)', // Slight shadow for depth
+    backgroundColor: '#f0f0f0',
+    borderRadius: '10px',
+    boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)',
+    display: 'flex',
+    alignItems: 'center', // Align items to the center vertically
+    justifyContent: 'center', 
+    flexWrap: 'wrap',
+    boxSizing: 'border-box',
+  },
+  thumbnail: {
+    width: '100%',
+    maxWidth: '100px', 
+    height: 'auto',
+    borderRadius: '10px',
+    marginRight: '20px',
+    flexShrink: 0,
+  },
+  latestVideoTextBlock: {
+    flex: '1',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center', // Center align the text vertically
+    textAlign: 'left', // Align text to the left for readability
+  },
+  latestVideo: {
+    fontSize: '20px',
+    fontWeight: 'bold',
+    color: '#00adb5',
+    textDecoration: 'underline',
+    marginBottom: '5px',
+    marginTop: '5px',
+  },
+  link: {
+    fontSize: '18px',
+    color: '#000',
+    textDecoration: 'none',
   },
   pillContainer: {
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'flex-start', // Align icon and text left
-    width: '100%',       // Full width for pills
-    maxWidth: '500px',   // Same width for consistency
-    backgroundColor: '#D8BFD8', // Purple background for pills
-    padding: '10px 20px', // Padding for pill
-    borderRadius: '50px', // Rounded corners for pill effect
-    marginBottom: '15px', // Space between pills
-    boxSizing: 'border-box', // Include padding in width
+    justifyContent: 'flex-start',
+    width: '100%',
+    maxWidth: '500px',
+    backgroundColor: '#D8BFD8',
+    padding: '10px 20px',
+    borderRadius: '50px',
+    marginBottom: '15px',
+    boxSizing: 'border-box',
+    boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)', // Add box-shadow for depth
   },
   icon: {
     width: '30px',
@@ -97,23 +133,14 @@ const styles = {
   },
   pillLink: {
     fontSize: '18px',
-    color: '#fff', // White text for contrast against purple background
+    color: '#fff',
     textDecoration: 'none',
-    flex: 1, // Ensure the link text expands to fill the space
-  },
-  latestVideo: {
-    fontSize: '20px',
-    fontWeight: 'bold',
-    marginBottom: '10px', // Add some space below the Latest Update text
-    color: '#00adb5', // Keep the original color
-    textDecoration: 'underline', // Add underline
-  },
-  link: {
-    fontSize: '18px',
-    color: '#000', // Change "Why we left the UK!" to black
-    textDecoration: 'none', // Remove underline
+    flex: 1,
   },
 };
 
 
+
 export default Linktree;
+
+
